@@ -1,13 +1,13 @@
 import './App.css'
-
+import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import LoginPage from './routes/Routes'
+import {LoginPage} from './routes/Routes'
 function App() {
   
 
   return (
     <>
-    zx<Routes>
+    <Routes>
       <Route path='/' element={<LoginPage/>} />
 
       
