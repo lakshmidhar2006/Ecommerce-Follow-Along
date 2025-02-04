@@ -57,10 +57,3 @@ The application includes features like **user authentication, product management
 - Configured **Multer** for file uploads (profile pictures, etc.).
 - Updated the repository with documentation on these features.
 
----
-
-## How to Run the Project
-### **1️ Clone the Repository**
-```sh
-git clone https://github.com/lakshmidhar2006/Ecommerce-Follow-Along.git
-cd Ecommerce-Follow-Along
