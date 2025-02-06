@@ -32,4 +32,3 @@ This milestone introduces user management and file uploads in the backend.
 A **User Model** is created using MongoDB schemas to structure user data.  
 A **User Controller** is implemented to handle user-related requests like registration and retrieval.  
 Multer is configured to enable file uploads, allowing users to store images on the server.  
-The project repository is updated with these features and documented in the README.
