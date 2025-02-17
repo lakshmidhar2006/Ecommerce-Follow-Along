@@ -1,22 +1,21 @@
 import React, { useState } from "react";
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
- 
-    if (!email || !password) {
-      alert("Please fill in all fields.");
-      return;
-    }
-
-
-
-    setEmail("");
-    setPassword("");
+const navigate=useNavigate()
+  const handleSubmit = async (e) => {
+    e.preventDefault();//prevent refresh
+ await axios.post(`http://localhost:5000/api/login`,{email,password})
+ .then(res=>{
+console.log(res.data)
+navigate("/")
+ }).catch(e=>{
+  console.log(e)
+ })
+  
   };
 
   return (

@@ -1,44 +1,69 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); 
+  const [profilePic, setProfilePic] = useState(null);
+
+  const handleFileChange = (e) => {
+    setProfilePic(e.target.files[0]); // Fixed file selection
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Validate input fields
+    if (!name || !email || !password  || !profilePic) {
+      alert("Please fill in all fields and upload a profile picture.");
+      return;
+    }
 
    
-    if (!name || !email || !password || !confirmPassword) {
-      alert("Please fill in all fields.");
-      return;
+
+    // Create a FormData object to send the image file
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("profilePic", profilePic);
+
+    try {
+      const response = await axios.post("http://localhost:5000/api/create", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      console.log("User created:", response.data);
+      alert("Account created successfully!");
+
+      // Reset fields
+      setName("");
+      setEmail("");
+      setPassword("");
+      
+      setProfilePic(null);
+    } catch (error) {
+      console.error("Error during signup:", error.response?.data || error.message);
+      alert("Signup failed!");
     }
-
-    if (password !== confirmPassword) {
-      alert("Passwords do not match.");
-      return;
-    }
-
-
-    
-    setName("");
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100"> 
-      <div className="bg-white p-8 rounded-lg shadow-md w-96"> 
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-md w-96">
         <h1 className="text-2xl font-bold mb-4 text-center">Create Account</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
           <div className="mb-4">
             <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
               Full Name
             </label>
             <input
               type="text"
+              name="name"
               id="name"
               className="border rounded-md w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
@@ -53,6 +78,7 @@ function Signup() {
             </label>
             <input
               type="email"
+              name="email"
               id="email"
               className="border rounded-md w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
@@ -68,6 +94,7 @@ function Signup() {
             <input
               type="password"
               id="password"
+              name="password"
               className="border rounded-md w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
               value={password}
@@ -75,21 +102,20 @@ function Signup() {
               placeholder="Enter your password"
             />
           </div>
-          <div className="mb-6">
-            <label
-              htmlFor="confirmPassword"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Confirm Password
+         
+          
+          <div className="mb-4">
+            <label htmlFor="profilePic" className="block text-gray-700 font-bold mb-2">
+              Profile Picture
             </label>
             <input
-              type="password"
-              id="confirmPassword"
+              type="file"
+              id="profilePic"
+              name="profilePic"
+              accept=".png, .jpg , .jpeg"
               className="border rounded-md w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder="Confirm your password"
+              onChange={handleFileChange}
             />
           </div>
           <button
