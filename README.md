@@ -62,7 +62,6 @@ This is a mentor-guided project to build a full-fledged **E-commerce application
   - Proper email format  
   - Strong password validation  
   - Matching password confirmation  
-- Signup page includes proper validation for clean and valid data submission.  
 - **Next Steps**: Connecting frontend with backend for authentication.  
 
 ### Milestone 6: Connecting Frontend with Backend & User Sessions
@@ -71,7 +70,6 @@ This is a mentor-guided project to build a full-fledged **E-commerce application
 - Used localStorage and Context API to maintain login state across sessions.  
 - Created protected routes to restrict unauthorized access.  
 - Implemented role-based access control (e.g., Admin vs. Regular Users).  
-- Improved UI with loading indicators and error messages.  
 
 ### Milestone 7: User Login API with Secure Authentication
 - Created a login API endpoint (`POST /api/auth/login`).  
@@ -82,25 +80,22 @@ This is a mentor-guided project to build a full-fledged **E-commerce application
   - If not, an error message is returned.  
 - Implemented JWT token generation for secure authentication.  
 - Tested the API using Postman and Thunder Client.  
-- Updated the project repository and documentation.  
-
----
 
 ### Milestone 8: Product Cards and Homepage Layout
-
 - Designed and built a **reusable product card component** that accepts product details via props.
-- Learned how to **dynamically display product cards** by passing an array of product details and mapping through them to render each card.
 - Created a **responsive homepage layout** using Tailwind CSS grid to display multiple cards efficiently across different screen sizes.
+- Used mock product data to dynamically generate product cards.
 
-1. **Created the Card Component**:  
-   I designed a reusable React component called `ProductCard`. This component accepts props like product name, image, and price, and displays them in a structured card format. I also added hover effects to make the cards interactive.
+### Milestone 9: Create Product Form
+- Built a frontend **Create Product Form** to take product details as input.
+- Implemented an image upload feature allowing multiple image selection.
+- Ensured the form is responsive and user-friendly using Tailwind CSS.
+- **Next Steps**: Connecting form submissions with backend API.
 
-2. **Designed the Homepage Layout**:  
-   I used **Tailwind CSS** to create a responsive grid layout for the homepage. The layout adapts to different screen sizes, with one column on mobile, two columns on tablet, and four columns on larger screens. This ensures a clean and organized display of products.
-
-3. **Displayed Dynamic Product Cards**:  
-   I created an array called `productDetails` containing mock product data such as name, image, description, and price. Using JavaScript's `map()` function, I iterated over the array to dynamically generate a card for each product.
-
-4. **UI Enhancements**:  
-   I ensured that the cards had consistent spacing, aligned content, and were visually appealing. The homepage now displays a neat grid of products, making it easy for users to browse through them.
+### Milestone 10: Writing Mongoose Schema & API Endpoint
+- Created a **Mongoose schema** for storing product details in MongoDB.
+- Defined fields like name, description, price, images, and category with proper validation.
+- Built a **POST endpoint** to receive and validate product data before storing it in MongoDB.
+- Ensured data integrity by implementing validation checks.
+- **Next Steps**: Connecting frontend product form with the backend API.
 
