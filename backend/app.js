@@ -1,18 +1,22 @@
 const express = require('express');
-const ErrorHandler = require('./utils/Error');
-const userRouter = require("./controller/user");
 const cors = require('cors');
-
+const path = require('path')
 const app = express();
-app.use(cors());
-app.use(express.json()); // Fixed typo
+const dotenv = require('dotenv')
+dotenv.config
+
+app.use(cors({ origin: "http://localhost:5173", credentials: true })); // Fixed CORS
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('upload'))
+app.use('/uploads', express.static('uploads')); // Serves uploaded images
+app.use('/upload', express.static(path.join(__dirname, '../upload')));
+//app.use('/products', express.static(path.join(__dirname, '../products')));
+app.use('/products', express.static(path.join(__dirname, '../products')));
 
-app.use('/api', userRouter); // Fixed incorrect variable name
+const userRouter = require("./controller/user");
+const productRouter = require('./controller/Product');
 
-if (process.env.NODE_ENV !== 'production')
-    require('dotenv').config({ path: 'backend/config/.env' });
+app.use('/api', userRouter);
+app.use('/api/products', productRouter);
 
-app.use(ErrorHandler);
 module.exports = app;

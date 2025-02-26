@@ -1,9 +1,11 @@
 const multer = require('multer')
 const path = require('path');  // Import the path module
 const fs = require('fs');
-const uploadDir = path.join(__dirname, '../products'); // Adjust based on your project structure
+const uploadDir = path.join(__dirname, '../products'); 
+
+// Ensure directory exists
 if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true }); // Create the directory if it doesn't exist
+    fs.mkdirSync(uploadDir, { recursive: true }); 
 }
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
