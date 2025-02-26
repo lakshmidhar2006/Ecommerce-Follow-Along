@@ -99,3 +99,22 @@ This is a mentor-guided project to build a full-fledged **E-commerce application
 - Ensured data integrity by implementing validation checks.
 - **Next Steps**: Connecting frontend product form with the backend API.
 
+### Milestone 11: Fetching & Displaying Products Dynamically
+- Added a **GET API endpoint** `/api/products` to retrieve all stored products from MongoDB.
+- Used **Axios** to fetch product data in the frontend.
+- Passed the retrieved data to the **Product Card Component** for dynamic display.
+
+### Milestone 12: Fetching & Displaying User-Specific Products
+- Created an endpoint `/api/products/my-products` to fetch products added by the logged-in user.
+- Used **JWT authentication** to filter products based on the user's email.
+- Updated the frontend to fetch and display only the logged-in user's products.
+
+---
+
+## Submission Guidelines 📥
+- Push your code to your GitHub repository.
+- Ensure your repository is publicly accessible.
+- Update the README file to summarize your progress for Milestone 12.
+- Share the repository link in the assignment submission section.
+
+🚀 **Great job! Keep building and refining your e-commerce project!**
