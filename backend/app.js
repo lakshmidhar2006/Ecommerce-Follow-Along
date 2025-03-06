@@ -1,18 +1,22 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path')
-const app = express();
-const dotenv = require('dotenv')
-dotenv.config
+const path = require('path');
+const dotenv = require('dotenv');
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true })); // Fixed CORS
+dotenv.config();  // ✅ Fixed dotenv loading
+
+const app = express();
+
+// ✅ Apply CORS before routes
+app.use(cors({ origin: "http://localhost:5175", credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/uploads', express.static('uploads')); // Serves uploaded images
-app.use('/upload', express.static(path.join(__dirname, '../upload')));
-//app.use('/products', express.static(path.join(__dirname, '../products')));
+
+// ✅ Corrected static folder paths
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 app.use('/products', express.static(path.join(__dirname, '../products')));
 
+// ✅ Imported routers correctly
 const userRouter = require("./controller/user");
 const productRouter = require('./controller/Product');
 

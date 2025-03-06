@@ -6,7 +6,7 @@ const fs = require("fs");
 const router = express.Router();
 const ErrorHandler = require("../utils/Error"); // Make sure this is correctly implemented
 
-router.post("/create", upload.single("profilePic"), async (req, res, next) => {
+router.post("/signup", upload.single("profilePic"), async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
     const existUser = await User.findOne({ email });

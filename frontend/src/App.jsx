@@ -4,10 +4,12 @@ import { Route, Routes } from 'react-router-dom';
 import Signup from './components/signup/Signup';
 import { LoginPage,Home } from './routes/Routes'; 
 import CreateProduct from './pages/CreateProduct';
+import Nav from './components/nav';
 
 function App() {
   return (
     <>
+    <Nav/>
       <Routes>
        <Route path="/" element={<Home/>}/>
         <Route path="/signup" element={<Signup />} />
@@ -15,6 +17,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         
       </Routes>
+      
     </>
   );
 }

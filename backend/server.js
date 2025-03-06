@@ -1,16 +1,21 @@
-const app = require('./app')
-const connectDB=require('./db/db')
-require('dotenv').config()
-const port = 5000
-process.on('uncaughtException',(error)=>{
-    console.log(`server shutthing down ${error.message}`)
-    process.exit(0)
-})
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
 
-    
-connectDB()
+dotenv.config();  // ✅ Fixed environment variable loading
 
+const app = require('./app');
+const connectDB = require('./db/db');
 
-app.listen(port,()=>{
-    console.log(`Server suceessfully listen at port http://localhost:${port}`)
-})
+const PORT = process.env.PORT || 5000;  // ✅ Ensures port availability
+
+const server = app.listen(PORT, async () => {
+    await connectDB();
+    console.log(`✅ Server running on port ${PORT}`);
+});
+
+// ✅ Proper shutdown handling
+process.on('SIGTERM', () => {
+    console.log('🔴 Server shutting down...');
+    server.close(() => process.exit(0));
+});
