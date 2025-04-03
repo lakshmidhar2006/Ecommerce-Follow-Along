@@ -1,11 +1,13 @@
-const  mongoose =  require('mongoose')
-module.exports = async()=>{
+const mongoose = require('mongoose')
+
+const connectDb=async()=>{
     try{
-        await mongoose.connect(`mongodb+srv://root:root@cluster0.4fwvc.mongodb.net/e-shop?retryWrites=true&w=majority&appName=Cluster0`)
-        console.log(`mongodb connected successfully`)
+    await mongoose.connect(process.env.MONGO_URL)
+    console.log(`mongoDb connected successfully`)
     }
-    catch(e)
-{
-    console.log(`something went wrong ${e.message}`)
-    process.exit(0)
-}}
+    catch(e){
+        console.log(`someting went wrong : ${e.message}`)
+        process.exit(0)
+    }
+}
+module.exports= connectDb

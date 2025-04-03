@@ -1,120 +1,50 @@
-# E-Commerce Application (MERN Stack)
+# milestone 1
+folder creation and github push
 
-This is a mentor-guided project to build a full-fledged **E-commerce application** using the **MERN stack** (**MongoDB, Express.js, React.js, and Node.js**). The application includes features such as **user authentication, product management, order handling, and secure payment processing**.
+# mileston 2
+login page frontend created
 
-## Tech Stack
+# milestone 3
+server.js backend setup
 
-### Frontend
-- React.js  
-- Tailwind CSS  
-- Axios (for API calls)  
-- React Router (for navigation)  
-- Context API (for global state management)  
+# milestone 4
+ sign up frontend created
 
-### Backend
-- Node.js  
-- Express.js  
-- MongoDB (Mongoose for database handling)  
-- Multer (for file uploads)  
-- JWT (JSON Web Tokens for authentication)  
-- bcrypt (for password hashing)  
+# milestone 5
+  user schema, signup post route created
 
-## Project Milestones  
+# milestone 6
+ login route created
 
-### Milestone 1: Project Overview
-- Understood the MERN project structure and key functionalities.  
-- Explored core e-commerce features:  
-  - User Authentication (Login & Registration)  
-  - Product Management (Add, update, and retrieve products)  
-  - Order Handling (Manage customer orders)  
-- Discussed REST API structure and MongoDB schema design.  
-- Set up the GitHub repository and planned the project workflow.  
+# milestone 7
+ home page created
 
-### Milestone 2: Frontend & Backend Setup
-- Organized frontend and backend into separate directories.  
-- **Frontend**:  
-  - Created a React app and configured Tailwind CSS.  
-  - Built the login page with user authentication.  
-- **Backend**:  
-  - Set up a Node.js server using Express.  
-  - Connected the backend to MongoDB.  
-- The first user-facing feature (Login Page) is complete.  
+# milestone 8
+product page creating
 
-### Milestone 3: Backend Development & Database Connection
-- Implemented a structured backend with routes, controllers, models, and middleware.  
-- Configured the Node.js server to handle API requests.  
-- Connected MongoDB for efficient data storage.  
-- Added basic error handling to improve debugging and user experience.  
+# milestone 9
+product schema creating, product post route
 
-### Milestone 4: User Management & File Uploads
-- Introduced user management in the backend.  
-  - Created a user model using MongoDB schemas.  
-  - Implemented a user controller to handle user-related requests.  
-- Configured Multer for file uploads, allowing users to upload images.  
-- Updated the project repository with these features and documented them in the README.  
+# milestone 10
+dynamic image displaying frontend
 
-### Milestone 5: Creating the Signup Page
-- Built the signup page where users can register with:  
-  - Full name  
-  - Email  
-  - Password  
-- Implemented form validation:  
-  - Proper email format  
-  - Strong password validation  
-  - Matching password confirmation  
-- **Next Steps**: Connecting frontend with backend for authentication.  
+# milestone 11
+dynamic image display backend
 
-### Milestone 6: Connecting Frontend with Backend & User Sessions
-- Integrated signup and login pages with backend APIs using Axios.  
-- Implemented JWT-based authentication to securely store and manage user sessions.  
-- Used localStorage and Context API to maintain login state across sessions.  
-- Created protected routes to restrict unauthorized access.  
-- Implemented role-based access control (e.g., Admin vs. Regular Users).  
+# milestone 12
+my product page crud fronted
 
-### Milestone 7: User Login API with Secure Authentication
-- Created a login API endpoint (`POST /api/auth/login`).  
-- Retrieved user data from the database based on the provided email.  
-- Validated user credentials:  
-  - Used bcrypt to compare entered password with the stored hashed password.  
-  - If the password matches, authentication is successful.  
-  - If not, an error message is returned.  
-- Implemented JWT token generation for secure authentication.  
-- Tested the API using Postman and Thunder Client.  
+# milestone 13 , 14
+my product crud backend
 
-### Milestone 8: Product Cards and Homepage Layout
-- Designed and built a **reusable product card component** that accepts product details via props.
-- Created a **responsive homepage layout** using Tailwind CSS grid to display multiple cards efficiently across different screen sizes.
-- Used mock product data to dynamically generate product cards.
+# milestone 15
+navbar
 
-### Milestone 9: Create Product Form
-- Built a frontend **Create Product Form** to take product details as input.
-- Implemented an image upload feature allowing multiple image selection.
-- Ensured the form is responsive and user-friendly using Tailwind CSS.
-- **Next Steps**: Connecting form submissions with backend API.
+# milestone 16
+product Detail page created
 
-### Milestone 10: Writing Mongoose Schema & API Endpoint
-- Created a **Mongoose schema** for storing product details in MongoDB.
-- Defined fields like name, description, price, images, and category with proper validation.
-- Built a **POST endpoint** to receive and validate product data before storing it in MongoDB.
-- Ensured data integrity by implementing validation checks.
-- **Next Steps**: Connecting frontend product form with the backend API.
+# milestone 17
+updated product and user schema with cart. created add to cart route and updated product detail page.
 
-### Milestone 11: Fetching & Displaying Products Dynamically
-- Added a **GET API endpoint** `/api/products` to retrieve all stored products from MongoDB.
-- Used **Axios** to fetch product data in the frontend.
-- Passed the retrieved data to the **Product Card Component** for dynamic display.
-
-### Milestone 12: Fetching & Displaying User-Specific Products
-- Created an endpoint `/api/products/my-products` to fetch products added by the logged-in user.
-- Used **JWT authentication** to filter products based on the user's email.
-- Updated the frontend to fetch and display only the logged-in user's products.
-
----
-
-## Submission Guidelines 📥
-- Push your code to your GitHub repository.
-- Ensure your repository is publicly accessible.
-- Update the README file to summarize your progress for Milestone 12.
-- Share the repository link in the assignment submission section.
-
-🚀 **Great job! Keep building and refining your e-commerce project!**
+# milestone 18
+ created an endpoint to display the products into the cart.
